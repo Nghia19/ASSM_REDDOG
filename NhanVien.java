@@ -51,7 +51,7 @@ public abstract class NhanVien {
     }
 
     public double getThueTN() {
-        return (getLuong() < 9000000) ? (double) 0 : ((getLuong() <= 15000000) ? getLuong() * 0.1 : getLuong() * 0.12);
+        return (getThuNhap() < 9000000) ? (double) 0 : ((getThuNhap() <= 15000000) ? getThuNhap() * 0.1 : getThuNhap() * 0.12);
 
     }
 
