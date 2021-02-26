@@ -20,7 +20,7 @@ public class NhanVienHanhChinh extends NhanVien {
 
     @Override
     public double getThuNhap() {
-        return getLuong() - super.getThueTN();
+        return getLuong();
     }
 
     @Override

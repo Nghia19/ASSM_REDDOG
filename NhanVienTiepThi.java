@@ -43,7 +43,7 @@ public class NhanVienTiepThi extends NhanVien {
 
     @Override
     public double getThuNhap() {
-        return getLuong() + getDoanhSo() * getHueHong() - super.getThueTN();
+        return getLuong() + getDoanhSo() * getHueHong();
     }
 
     @Override

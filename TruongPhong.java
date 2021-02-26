@@ -33,7 +33,7 @@ public class TruongPhong extends NhanVien {
 
     @Override
     public double getThuNhap() {
-        return getLuong() + getTrachNhiem() - super.getThueTN();
+        return getLuong() + getTrachNhiem();
     }
 
     @Override
