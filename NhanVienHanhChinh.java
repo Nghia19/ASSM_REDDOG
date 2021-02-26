@@ -20,19 +20,19 @@ public class NhanVienHanhChinh extends NhanVien {
 
     @Override
     public double getThuNhap() {
-        return getLuong() - getThueTN();
+        return getLuong() - super.getThueTN();
     }
 
     @Override
     public void XuatNhanVien() {
         super.XuatNhanVien(); //To change body of generated methods, choose Tools | Templates.
-        System.out.printf("\t%-20.2f\n", getThuNhap());
+        System.out.printf("\t%-20.2f\n", super.getThucNhan());
     }
 
     @Override
     public void XuatNhanVienFull() {
         super.XuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
-        System.out.printf("\t%-20.2f\n", getThuNhap());
+        System.out.printf("\t%-20.2f\n", super.getThucNhan());
     }
 
 }

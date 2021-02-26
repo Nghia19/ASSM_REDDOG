@@ -57,6 +57,10 @@ public abstract class NhanVien {
 
     public abstract double getThuNhap();
 
+    public double getThucNhan() {
+        return getThuNhap() - getThueTN();
+    }
+
     public void nhapNhanVien() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
