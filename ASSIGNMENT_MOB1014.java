@@ -220,7 +220,7 @@ public class ASSIGNMENT_MOB1014 {
                 System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
                 for (i = 0; i < listSalary.size(); i++) {
                     if (listSalary.get(i).substring(0, 2).equals("HC")) {
-                        danhSachNhanVien.get(i).XuatNhanVienFull();
+                        danhSachNhanVien.get(i).XuatNhanVienFull(false);
                     }
                 }
                 boolean nvtt = false;
@@ -235,7 +235,7 @@ public class ASSIGNMENT_MOB1014 {
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Doanh thu", "Hoa hồng", "Thu Nhập");
                     for (; i < listSalary.size(); i++) {
                         if (listSalary.get(i).substring(0, 2).equals("TT")) {
-                            danhSachNhanVien.get(i).XuatNhanVienFull();
+                            danhSachNhanVien.get(i).XuatNhanVienFull(false);
                         }
                     }
                 }
@@ -251,7 +251,7 @@ public class ASSIGNMENT_MOB1014 {
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Tiền trách nhiệm", "Thu Nhập");
                     for (; i < listSalary.size(); i++) {
                         if (listSalary.get(i).substring(0, 2).equals("TP")) {
-                            danhSachNhanVien.get(i).XuatNhanVienFull();
+                            danhSachNhanVien.get(i).XuatNhanVienFull(false);
                         }
                     }
                 }
@@ -274,8 +274,8 @@ public class ASSIGNMENT_MOB1014 {
                 maNV = scanner.nextLine();
                 if (listSalary.contains(maNV)) {
                     System.out.println("\nĐã tìm thấy!!!\n");
-                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVien();
+//                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
+                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
                 } else {
                     System.out.println(maNV + " Mã số không tìm thấy");
                 }
@@ -298,7 +298,7 @@ public class ASSIGNMENT_MOB1014 {
                 maNV = scanner.nextLine();
                 if (listSalary.contains(maNV)) {
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVien();
+                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn xóa (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
                         danhSachNhanVien.remove(listSalary.indexOf(maNV));
@@ -328,13 +328,13 @@ public class ASSIGNMENT_MOB1014 {
                 if (listSalary.contains(maNV)) {
                     System.out.println("`````````` Thông tin nhân viên vừa tìm thấy ``````````");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVien();
+                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn cập nhật thông tin (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
                         System.out.println("/nCập nhật lại thông tin nhân viên");
                         danhSachNhanVien.get(listSalary.indexOf(maNV)).nhapNhanVien();
                         System.out.println("/nĐã cập nhật thành công");
-                        danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVien();
+                        danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
                     }
                 } else {
                     System.out.println(maNV + " Mã số không tìm thấy");
@@ -354,29 +354,29 @@ public class ASSIGNMENT_MOB1014 {
             System.out.print("++-------------------------------------------------------++\n\n\n");
             if (danhSachNhanVien.size() > 0) {
                 System.out.println("Nhập khoảng thu nhập cần tìm [a - b]");
-                double a, b;
+                double min, max;
                 int i;
                 boolean flag = false;
                 System.out.print("a = ");
-                a = nhapSo();
+                min = nhapSo();
                 System.out.print("b = ");
-                b = nhapSo();
+                max = nhapSo();
                 for (i = 0; i < danhSachNhanVien.size(); i++) {
-                    if (danhSachNhanVien.get(i).getThuNhap() >= a) {
+                    if (danhSachNhanVien.get(i).getThuNhap() >= min) {
                         flag = true;
                         break;
                     }
                 }
                 if (flag) {
-                    System.out.println("\n======== DANH SÁCH NHÂN VIÊN THEO THU NHẬP TỪ " + a + " đến " + b + " ========");
+                    System.out.println("\n======== DANH SÁCH NHÂN VIÊN THEO THU NHẬP TỪ " + min + " đến " + max + " ========");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
                     for (; i < danhSachNhanVien.size(); i++) {
-                        if (danhSachNhanVien.get(i).getThuNhap() >= a && danhSachNhanVien.get(i).getThuNhap() <= b) {
+                        if (danhSachNhanVien.get(i).getThuNhap() >= min && danhSachNhanVien.get(i).getThuNhap() <= max) {
                             danhSachNhanVien.get(i).XuatNhanVien();
                         }
                     }
                 } else {
-                    System.out.println("Không tìm thấy nhân viên theo khoảng thu nhập từ" + a + " đến " + b);
+                    System.out.println("Không tìm thấy nhân viên theo khoảng thu nhập từ" + min + " đến " + max);
                 }
             } else {
                 System.out.println("Chưa có nhân viên nào trong danh sách\n");

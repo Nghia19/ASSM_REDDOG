@@ -62,8 +62,11 @@ public class TruongPhong extends NhanVien {
     }
 
     @Override
-    public void XuatNhanVienFull() {
-        super.XuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
+    public void XuatNhanVienFull(boolean title) {
+        if (title) {
+            System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Tiền trách nhiệm", "Thu Nhập");
+        }
+        super.XuatNhanVienFull(title); //To change body of generated methods, choose Tools | Templates.
         System.out.printf("\t%-20.2f\t%-20.2f\n", getTrachNhiem(), super.getThucNhan());
     }
 
