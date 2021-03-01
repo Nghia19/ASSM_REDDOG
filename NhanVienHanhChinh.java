@@ -30,6 +30,11 @@ public class NhanVienHanhChinh extends NhanVien {
     }
 
     @Override
+    public void XuatNhanVienFull() {
+        super.XuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void XuatNhanVienFull(boolean title) {
         if (title) {
             System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");

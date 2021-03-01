@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class NhanVienTiepThi extends NhanVien {
 
     private double doanhSo;
-    private double hueHong;
+    private double hoaHong;
 
     public NhanVienTiepThi() {
     }
@@ -22,7 +22,7 @@ public class NhanVienTiepThi extends NhanVien {
     public NhanVienTiepThi(double doanhSo, double hueHong, String maNV, String hoTen, double luong) {
         super(maNV, hoTen, luong);
         this.doanhSo = doanhSo;
-        this.hueHong = hueHong;
+        this.hoaHong = hueHong;
     }
 
     public double getDoanhSo() {
@@ -34,11 +34,11 @@ public class NhanVienTiepThi extends NhanVien {
     }
 
     public double getHueHong() {
-        return hueHong;
+        return hoaHong;
     }
 
     public void setHueHong(double hueHong) {
-        this.hueHong = hueHong;
+        this.hoaHong = hueHong;
     }
 
     @Override
@@ -64,16 +64,16 @@ public class NhanVienTiepThi extends NhanVien {
             }
         }
         while (true) {
-            System.out.print("Nhập Tỉ lệ huê hồng: ");
+            System.out.print("Nhập Tỉ lệ hoa hồng: ");
             try {
                 setHueHong(Double.parseDouble(scanner.nextLine()));
-                if (getHueHong() <= 0) {
-                    System.out.println("Tỉ lệ hoa hêu hồng phải lớn hơn 0! Vui lòng nhập lại!");
+                if (getHueHong() <= 0 || getHueHong() >=100) {
+                    System.out.println("Tỉ lệ hoa hoa hồng phải lớn hơn 0 và nhỏ hơn 100! Vui lòng nhập lại!");
                     continue;
                 }
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Tỉ lệ huê hồng vừa nhập không hợp lệ! Vui lòng nhập lại!");
+                System.out.println("Tỉ lệ hoa hồng vừa nhập không hợp lệ! Vui lòng nhập lại!");
             }
         }
     }
@@ -82,6 +82,11 @@ public class NhanVienTiepThi extends NhanVien {
     public void XuatNhanVien() {
         super.XuatNhanVien(); //To change body of generated methods, choose Tools | Templates.
         System.out.printf("\t%-20.2f\n", super.getThucNhan());
+    }
+
+    @Override
+    public void XuatNhanVienFull() {
+        super.XuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

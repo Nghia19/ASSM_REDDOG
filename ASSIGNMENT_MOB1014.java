@@ -17,7 +17,7 @@ public class ASSIGNMENT_MOB1014 {
 
     static Scanner scanner = new Scanner(System.in);
     static ArrayList<NhanVien> danhSachNhanVien = new ArrayList<NhanVien>();
-    static ArrayList<String> listSalary = new ArrayList<String>();
+    static ArrayList<String> listMaNV = new ArrayList<String>();
 
     public static void main(String[] args) {
 
@@ -94,7 +94,7 @@ public class ASSIGNMENT_MOB1014 {
                 System.out.print("Nhập Mã số Nhân viên (VD: HC123): HC");
                 try {
                     maNV = "HC" + Integer.parseInt(scanner.nextLine());
-                    if (listSalary.contains(maNV)) {
+                    if (listMaNV.contains(maNV)) {
                         System.out.println("Mã Nhân viên đã tồn tại! Mời nhập lại!!");
                         continue;
                     }
@@ -103,7 +103,7 @@ public class ASSIGNMENT_MOB1014 {
                     System.out.println("Chỉ nhập số! Mời nhập lại mã số!!");
                 }
             }
-            listSalary.add(maNV);
+            listMaNV.add(maNV);
             nv.setMaNV(maNV);
             nv.nhapNhanVien();
             danhSachNhanVien.add(nv);
@@ -124,7 +124,7 @@ public class ASSIGNMENT_MOB1014 {
                 System.out.print("Nhập Mã số Nhân viên (VD: TT123): TT");
                 try {
                     maNV = "TT" + Integer.parseInt(scanner.nextLine());
-                    if (listSalary.contains(maNV)) {
+                    if (listMaNV.contains(maNV)) {
                         System.out.println("Mã Nhân viên đã tồn tại! Mời nhập lại!!");
                         continue;
                     }
@@ -133,7 +133,7 @@ public class ASSIGNMENT_MOB1014 {
                     System.out.println("Chỉ nhập số! Mời nhập lại mã số!!");
                 }
             }
-            listSalary.add(maNV);
+            listMaNV.add(maNV);
             nv.setMaNV(maNV);
             nv.nhapNhanVien();
             danhSachNhanVien.add(nv);
@@ -154,7 +154,7 @@ public class ASSIGNMENT_MOB1014 {
                 System.out.print("Nhập Mã số Nhân viên (VD: TP123): TP");
                 try {
                     maNV = "TP" + Integer.parseInt(scanner.nextLine());
-                    if (listSalary.contains(maNV)) {
+                    if (listMaNV.contains(maNV)) {
                         System.out.println("Mã Nhân viên đã tồn tại! Mời nhập lại!!");
                         continue;
                     }
@@ -163,7 +163,7 @@ public class ASSIGNMENT_MOB1014 {
                     System.out.println("Chỉ nhập số! Mời nhập lại mã số!!");
                 }
             }
-            listSalary.add(maNV);
+            listMaNV.add(maNV);
             nv.setMaNV(maNV);
             nv.nhapNhanVien();
             danhSachNhanVien.add(nv);
@@ -217,8 +217,8 @@ public class ASSIGNMENT_MOB1014 {
             System.out.print("++-------------------------------------------------------++\n\n");
             if (danhSachNhanVien.size() > 0) {
                 boolean nvhc = false;
-                for (i = 0; i < listSalary.size(); i++) {
-                    if (listSalary.get(i).substring(0, 2).equals("HC")) {
+                for (i = 0; i < listMaNV.size(); i++) {
+                    if (listMaNV.get(i).substring(0, 2).equals("HC")) {
                         nvhc = true;
                         break;
                     }
@@ -226,15 +226,15 @@ public class ASSIGNMENT_MOB1014 {
                 if (nvhc) {
                     System.out.println("\n======== NHÂN VIÊN HÀNH CHÍNH ========");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    for (; i < listSalary.size(); i++) {
-                        if (listSalary.get(i).substring(0, 2).equals("HC")) {
+                    for (; i < listMaNV.size(); i++) {
+                        if (listMaNV.get(i).substring(0, 2).equals("HC")) {
                             danhSachNhanVien.get(i).XuatNhanVienFull(false);
                         }
                     }
                 }
                 boolean nvtt = false;
-                for (i = 0; i < listSalary.size(); i++) {
-                    if (listSalary.get(i).substring(0, 2).equals("TT")) {
+                for (i = 0; i < listMaNV.size(); i++) {
+                    if (listMaNV.get(i).substring(0, 2).equals("TT")) {
                         nvtt = true;
                         break;
                     }
@@ -242,15 +242,15 @@ public class ASSIGNMENT_MOB1014 {
                 if (nvtt) {
                     System.out.println("\n======== NHÂN VIÊN TIẾP THỊ ========");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Doanh thu", "Hoa hồng", "Thu Nhập");
-                    for (; i < listSalary.size(); i++) {
-                        if (listSalary.get(i).substring(0, 2).equals("TT")) {
+                    for (; i < listMaNV.size(); i++) {
+                        if (listMaNV.get(i).substring(0, 2).equals("TT")) {
                             danhSachNhanVien.get(i).XuatNhanVienFull(false);
                         }
                     }
                 }
                 boolean tP = false;
-                for (i = 0; i < listSalary.size(); i++) {
-                    if (listSalary.get(i).substring(0, 2).equals("TP")) {
+                for (i = 0; i < listMaNV.size(); i++) {
+                    if (listMaNV.get(i).substring(0, 2).equals("TP")) {
                         tP = true;
                         break;
                     }
@@ -258,8 +258,8 @@ public class ASSIGNMENT_MOB1014 {
                 if (tP) {
                     System.out.println("\n======== TRƯỞNG PHÒNG ========");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Tiền trách nhiệm", "Thu Nhập");
-                    for (; i < listSalary.size(); i++) {
-                        if (listSalary.get(i).substring(0, 2).equals("TP")) {
+                    for (; i < listMaNV.size(); i++) {
+                        if (listMaNV.get(i).substring(0, 2).equals("TP")) {
                             danhSachNhanVien.get(i).XuatNhanVienFull(false);
                         }
                     }
@@ -281,10 +281,10 @@ public class ASSIGNMENT_MOB1014 {
                 String maNV;
                 System.out.print("Nhập Mã số Nhân viên: ");
                 maNV = scanner.nextLine();
-                if (listSalary.contains(maNV)) {
+                if (listMaNV.contains(maNV)) {
                     System.out.println("\nĐã tìm thấy!!!\n");
 //                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
+                    danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                 } else {
                     System.out.println(maNV + " Mã số không tìm thấy");
                 }
@@ -305,13 +305,13 @@ public class ASSIGNMENT_MOB1014 {
                 String maNV;
                 System.out.print("Nhập mã nhân viên cần xóa: ");
                 maNV = scanner.nextLine();
-                if (listSalary.contains(maNV)) {
+                if (listMaNV.contains(maNV)) {
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
+                    danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn xóa (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
-                        danhSachNhanVien.remove(listSalary.indexOf(maNV));
-                        listSalary.remove(listSalary.indexOf(maNV));
+                        danhSachNhanVien.remove(listMaNV.indexOf(maNV));
+                        listMaNV.remove(listMaNV.indexOf(maNV));
                         System.out.println("\nĐã xóa thành công");
                     }
                 } else {
@@ -334,16 +334,16 @@ public class ASSIGNMENT_MOB1014 {
                 String maNV;
                 System.out.print("Nhập mã nhân viên cần cập nhật: ");
                 maNV = scanner.nextLine();
-                if (listSalary.contains(maNV)) {
+                if (listMaNV.contains(maNV)) {
                     System.out.println("`````````` Thông tin nhân viên vừa tìm thấy ``````````");
                     System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                    danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
+                    danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn cập nhật thông tin (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
                         System.out.println("/nCập nhật lại thông tin nhân viên");
-                        danhSachNhanVien.get(listSalary.indexOf(maNV)).nhapNhanVien();
+                        danhSachNhanVien.get(listMaNV.indexOf(maNV)).nhapNhanVien();
                         System.out.println("/nĐã cập nhật thành công");
-                        danhSachNhanVien.get(listSalary.indexOf(maNV)).XuatNhanVienFull(true);
+                        danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                     }
                 } else {
                     System.out.println(maNV + " Mã số không tìm thấy");

@@ -5,7 +5,6 @@
  */
 package ASSM_REDDOG;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -93,6 +92,8 @@ public abstract class NhanVien {
         System.out.printf("%-20s\t%-20s\t%-20.2f", getMaNV(), getHoTen(), getLuong());
     }
 
+    public void XuatNhanVienFull(){
+    }
     public void XuatNhanVienFull(boolean title) {
         System.out.printf("%-20s\t%-20s\t%-20.2f", getMaNV(), getHoTen(), getLuong());
     }
