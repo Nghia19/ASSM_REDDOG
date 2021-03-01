@@ -216,11 +216,20 @@ public class ASSIGNMENT_MOB1014 {
             System.out.print("|                 Xuất danh sách nhân viên                |\n");
             System.out.print("++-------------------------------------------------------++\n\n");
             if (danhSachNhanVien.size() > 0) {
-                System.out.println("\n======== NHÂN VIÊN HÀNH CHÍNH ========");
-                System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
+                boolean nvhc = false;
                 for (i = 0; i < listSalary.size(); i++) {
                     if (listSalary.get(i).substring(0, 2).equals("HC")) {
-                        danhSachNhanVien.get(i).XuatNhanVienFull(false);
+                        nvhc = true;
+                        break;
+                    }
+                }
+                if (nvhc) {
+                    System.out.println("\n======== NHÂN VIÊN HÀNH CHÍNH ========");
+                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
+                    for (; i < listSalary.size(); i++) {
+                        if (listSalary.get(i).substring(0, 2).equals("HC")) {
+                            danhSachNhanVien.get(i).XuatNhanVienFull(false);
+                        }
                     }
                 }
                 boolean nvtt = false;
