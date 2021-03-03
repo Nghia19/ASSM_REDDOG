@@ -11,18 +11,19 @@ import java.util.Scanner;
  *
  * @author DEV
  */
+//lớp con : TruongPhong
 public class TruongPhong extends NhanVien {
 
     private double trachNhiem;
-
+    // Hàm tạo có đối số
     public TruongPhong() {
     }
-
+    // Hàm tạo có đối số
     public TruongPhong(double trachNhiem, String maNV, String hoTen, double luong) {
         super(maNV, hoTen, luong);
         this.trachNhiem = trachNhiem;
     }
-
+    // Các phương thức getter - setter
     public double getTrachNhiem() {
         return trachNhiem;
     }
@@ -30,16 +31,17 @@ public class TruongPhong extends NhanVien {
     public void setTrachNhiem(double trachNhiem) {
         this.trachNhiem = trachNhiem;
     }
-
+    // Kế thừa hàm getThuNhap() từ lớp NhanVien
     @Override
     public double getThuNhap() {
         return getLuong() + getTrachNhiem();
     }
-
+    // Kế thừa hàm nhapNhanVien() từ lớp NhanVien
     @Override
     public void nhapNhanVien() {
         super.nhapNhanVien();
         Scanner scanner = new Scanner(System.in);
+        // Chỉ cho phép nhập số
         while (true) {
             System.out.print("Nhập Lương trách nhiệm: ");
             try {
@@ -54,24 +56,24 @@ public class TruongPhong extends NhanVien {
             }
         }
     }
-
+    // Kế thừa hàm xuatNhanVien() từ lớp NhanVien
     @Override
-    public void XuatNhanVien() {
-        super.XuatNhanVien(); //To change body of generated methods, choose Tools | Templates.
+    public void xuatNhanVien() {
+        super.xuatNhanVien(); //To change body of generated methods, choose Tools | Templates.
         System.out.printf("\t%-20.2f\n", super.getThucNhan());
     }
-
+     // Kế thừa hàm xuatNhanVienFull() từ lớp NhanVien
     @Override
-    public void XuatNhanVienFull() {
-        super.XuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
+    public void xuatNhanVienFull() {
+        super.xuatNhanVienFull(); //To change body of generated methods, choose Tools | Templates.
     }
-
+     // Kế thừa hàm xuatNhanVienFull(boolean title) từ lớp NhanVien
     @Override
-    public void XuatNhanVienFull(boolean title) {
+    public void xuatNhanVienFull(boolean title) {
         if (title) {
             System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Tiền trách nhiệm", "Thu Nhập");
         }
-        super.XuatNhanVienFull(title); //To change body of generated methods, choose Tools | Templates.
+        super.xuatNhanVienFull(title); //To change body of generated methods, choose Tools | Templates.
         System.out.printf("\t%-20.2f\t%-20.2f\n", getTrachNhiem(), super.getThucNhan());
     }
 
