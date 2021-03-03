@@ -283,7 +283,6 @@ public class ASSIGNMENT_MOB1014 {
                 maNV = scanner.nextLine();
                 if (listMaNV.contains(maNV)) {
                     System.out.println("\nĐã tìm thấy!!!\n");
-//                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
                     danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                 } else {
                     System.out.println(maNV + " Mã số không tìm thấy");
@@ -306,7 +305,6 @@ public class ASSIGNMENT_MOB1014 {
                 System.out.print("Nhập mã nhân viên cần xóa: ");
                 maNV = scanner.nextLine();
                 if (listMaNV.contains(maNV)) {
-                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
                     danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn xóa (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
@@ -336,7 +334,6 @@ public class ASSIGNMENT_MOB1014 {
                 maNV = scanner.nextLine();
                 if (listMaNV.contains(maNV)) {
                     System.out.println("`````````` Thông tin nhân viên vừa tìm thấy ``````````");
-                    System.out.printf("%-20s\t%-20s\t%-20s\t%-20s\n", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
                     danhSachNhanVien.get(listMaNV.indexOf(maNV)).XuatNhanVienFull(true);
                     System.out.print("\nBạn có muốn cập nhật thông tin (C/K)");
                     if (scanner.nextLine().equalsIgnoreCase("C")) {
@@ -362,13 +359,13 @@ public class ASSIGNMENT_MOB1014 {
             System.out.print("|                 Tìm theo khoảng thu nhập                 |\n");
             System.out.print("++-------------------------------------------------------++\n\n\n");
             if (danhSachNhanVien.size() > 0) {
-                System.out.println("Nhập khoảng thu nhập cần tìm [a - b]");
+                System.out.println("Nhập khoảng thu nhập cần tìm [min - max]");
                 double min, max;
                 int i;
                 boolean flag = false;
-                System.out.print("a = ");
+                System.out.print("min = ");
                 min = nhapSo();
-                System.out.print("b = ");
+                System.out.print("max = ");
                 max = nhapSo();
                 for (i = 0; i < danhSachNhanVien.size(); i++) {
                     if (danhSachNhanVien.get(i).getThuNhap() >= min) {
@@ -444,10 +441,8 @@ public class ASSIGNMENT_MOB1014 {
                 ArrayList<NhanVien> danhSachNhanVienClone = new ArrayList<>(danhSachNhanVien);
                 Collections.sort(danhSachNhanVienClone, (a, b) -> Double.compare(b.getThuNhap(), a.getThuNhap()));
                 System.out.printf("%-4s\t%-20s\t%-20s\t%-20s\t%-20s\n", "TOP", "Mã nhân viên", "Họ và tên", "Lương", "Thu Nhập");
-                int i = 1;
-                for (NhanVien nv : danhSachNhanVienClone) {
-                    System.out.printf("%-4d\t", i);
-                    nv.XuatNhanVien();
+                for (int i = 0; i < danhSachNhanVienClone.size();) {
+                    danhSachNhanVienClone.get(i).XuatNhanVien();
                     if (++i > 5) {
                         break;
                     }
